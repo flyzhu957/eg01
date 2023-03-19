@@ -1,0 +1,8 @@
+com\itheima\web\servlet\BaseServlet.class
+com\itheima\service\impl\BookServiceImpl.class
+com\itheima\web\Filter\CharacterEncodingFilter.class
+com\itheima\mapper\BookMapper.class
+com\itheima\service\BookService.class
+com\itheima\utils\SqlSessionFactoryUtils.class
+com\itheima\domain\Book.class
+com\itheima\web\servlet\BookServlet.class
