@@ -36,7 +36,7 @@ public class BookServlet extends BaseServlet {
         //1.查询所有图书对象
         List<Book> books = bookService.findAllBook();
 
-       // System.out.println("666");
+        // System.out.println("666");
         //2.将图书对象放到request域中
         request.setAttribute("books", books);
         //3.请求转发到list.jsp页面
@@ -61,7 +61,7 @@ public class BookServlet extends BaseServlet {
         request.setAttribute("book", book);
         //4. 转发到uodata.jsp
         // (edit.jsp)
-        request.getRequestDispatcher("/pages/book/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/book/edit.jsp").forward(request, response);
 
     }
 
@@ -75,11 +75,10 @@ public class BookServlet extends BaseServlet {
      */
     public void updateBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //1. 接收表单提交的数据，封装为Book对象
-
         BufferedReader br = request.getReader();
         String params = br.readLine();//获取字符串
         String decode = URLDecoder.decode(params, "utf-8");
-       // System.out.println(decode);
+        // System.out.println(decode);
         String[] split = decode.split("&");
         Map<String,String>  map = new HashMap<>();
         for (String s : split) {
@@ -102,7 +101,7 @@ public class BookServlet extends BaseServlet {
         bookService.updateBook(book);
         //System.out.println("updateBook修改后");
         //4. 转发到findAllBook
-        request.getRequestDispatcher("/pages/book/edit.jsp").forward(request, response);
+        request.getRequestDispatcher("/books/findAllBook").forward(request, response);
         //System.out.println("updateBook转发后");
     }
 
@@ -128,7 +127,7 @@ public class BookServlet extends BaseServlet {
         bookService.findAllBook();
         request.setAttribute("id", id);
         //4. 转发到findAllBook
-        request.getRequestDispatcher("/pages/book/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/books/findAllBook").forward(request, response);
     }
 
 
@@ -136,7 +135,7 @@ public class BookServlet extends BaseServlet {
         //1. 接收表单提交的数据，封装为Book对象
         BufferedReader reader = request.getReader();
         String params = reader.readLine();//json字符串
-       // System.out.println(params);
+        // System.out.println(params);
         String decode = URLDecoder.decode(params, "utf-8");
         //System.out.println(decode);
         String[] split = decode.split("&");
@@ -153,7 +152,7 @@ public class BookServlet extends BaseServlet {
         //3. 调用service,完成添加
         bookService.addBook(book);
         //4. 转发到findAllBook
-        request.getRequestDispatcher("/pages/book/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/books/findAllBook").forward(request, response);
     }
 
 }
