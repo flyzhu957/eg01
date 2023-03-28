@@ -58,8 +58,6 @@
         </ol>
     </section>
     <!-- 内容头部 /-->
-    <%-- ${books} --%>
-
 
     <!-- 正文区域 -->
     <section class="content">
